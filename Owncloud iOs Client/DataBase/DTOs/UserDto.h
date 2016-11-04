@@ -54,5 +54,6 @@ typedef enum {
 @property (nonatomic, copy) NSString *urlRedirected;
 @property (nonatomic, strong) CapabilitiesDto *capabilitiesDto;
 @property enumSortingType sortingType;
+@property BOOL expired;
 
 @end

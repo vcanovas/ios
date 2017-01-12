@@ -402,6 +402,7 @@ NSString * NotReachableNetworkForDownloadsNotification = @"NotReachableNetworkFo
         dispatch_async(dispatch_get_main_queue(), ^{
             [self doThingsThatShouldDoOnStart];
             [self launchUploadsOfflineFromDocumentProvider];
+            [self updateUploadsPathAfterChangeServerUrl];
             [self generateAppInterfaceFromLoginScreen:NO];
         });
     }
@@ -2691,6 +2692,16 @@ NSString * NotReachableNetworkForDownloadsNotification = @"NotReachableNetworkFo
         [_prepareFiles sendFileToUploadByUploadOfflineDto:[listOfFilesGeneratedByDocumentProvider objectAtIndex:0]];
         
  
+    }
+}
+
+
+- (void) updateUploadsPathAfterChangeServerUrl {
+    
+    if ([ManageUsersDB isUsers] && k_force_update_of_server_url && [UtilsFileSystem isOpenAfterUpgrade]){
+        for (ManageUploadRequest *uploadFile in _uploadArray) {
+            [uploadFile refreshPathOfUploadAfterServerChangeUrl];
+        }
     }
 }
 

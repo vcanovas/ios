@@ -1178,8 +1178,6 @@ NSString * NotReachableNetworkForDownloadsNotification = @"NotReachableNetworkFo
         [self getCallBacksOfUploads];
         
         
-
-        
         NSUserDefaults * standardUserDefaults = [NSUserDefaults standardUserDefaults];
         
         if ([standardUserDefaults boolForKey:k_app_killed_by_user]) {
@@ -2128,6 +2126,7 @@ NSString * NotReachableNetworkForDownloadsNotification = @"NotReachableNetworkFo
     }
     
 }
+
 
 
 #pragma markt - LocalPath by version

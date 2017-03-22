@@ -1774,7 +1774,7 @@
 
 - (void) didSelectEditAccount:(UserDto *)user  {
    
-    EditAccountViewController *viewController = [[EditAccountViewController alloc]initWithNibName:@"EditAccountViewController_iPhone" bundle:nil  andUser:user];
+    EditAccountViewController *viewController = [[EditAccountViewController alloc]initWithNibName:@"EditAccountViewController_iPhone" bundle:nil  andUser:user andModeUpdateToPredefinedUrl:NO];
     
     if (IS_IPHONE) {
         viewController.hidesBottomBarWhenPushed = YES;

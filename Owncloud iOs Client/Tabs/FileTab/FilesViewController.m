@@ -283,10 +283,7 @@
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     UserDto *currentUser = [ManageUsersDB getActiveUser];
     //ErrorLogin
-    app.isErrorLoginShown = NO;
-    
     if ([UtilsUrls isNecessaryUpdateToPredefinedUrlByPreviousUrl:currentUser.predefinedUrl]) {
-       //TODO:update editview instead show alert error, showEdit
         [self errorLogin];
     }
     
@@ -3424,11 +3421,7 @@
     
     [self endLoading];
     
-    //Flag to indicate that the error login is in the screen
-    AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    if (app.isErrorLoginShown == NO && !_checkingEtag) {
-        app.isErrorLoginShown = YES;
-        
+    if (!_checkingEtag) {
         //In SAML the error message is about the session expired
         if (k_is_sso_active) {
             //UIAlertView with blocks

@@ -589,8 +589,6 @@ typedef NS_ENUM (NSInteger, enumUpload){
     
     [self performSelector:@selector(showEditAccount) withObject:nil afterDelay:animationsDelay];
     
-    [self performSelector:@selector(showErrorAccount) withObject:nil afterDelay:largeDelay];
-    
 }
 
 
@@ -601,7 +599,7 @@ typedef NS_ENUM (NSInteger, enumUpload){
 #ifdef CONTAINER_APP
     
     //Edit Account
-    self.resolveCredentialErrorViewController = [[EditAccountViewController alloc]initWithNibName:@"EditAccountViewController_iPhone" bundle:nil andUser:[ManageUsersDB getActiveUser] andModeUpdateToPredefinedUrl:NO];
+    self.resolveCredentialErrorViewController = [[EditAccountViewController alloc]initWithNibName:@"EditAccountViewController_iPhone" bundle:nil andUser:[ManageUsersDB getActiveUser] andLoginMode:LoginModeExpire];
     [self.resolveCredentialErrorViewController setBarForCancelForLoadingFromModal];
     
     if (IS_IPHONE) {
@@ -620,23 +618,6 @@ typedef NS_ENUM (NSInteger, enumUpload){
     
 }
 
-- (void) showErrorAccount {
-    
-    if (k_is_sso_active) {
-        [self showErrorWithTitle:NSLocalizedString(@"session_expired", nil)];
-    }else{
-        [self showErrorWithTitle:NSLocalizedString(@"error_login_message", nil)];
-    }
-    
-}
-
-- (void)showErrorWithTitle: (NSString *)title {
-    
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:@"" delegate:self cancelButtonTitle:NSLocalizedString(@"ok", nil) otherButtonTitles:nil, nil];
-    [alertView show];
-    
-    
-}
 
 #pragma mark - UIGestureRecognizer delegate
 

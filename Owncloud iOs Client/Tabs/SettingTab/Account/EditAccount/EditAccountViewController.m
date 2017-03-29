@@ -70,25 +70,6 @@ NSString *relaunchErrorCredentialFilesNotification = @"relaunchErrorCredentialFi
     return self;
 }
 
-
-
-- (void)setBrandingNavigationBarWithCancelButton{
-    
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        [self.navigationController.navigationBar setTintColor:[UIColor colorOfNavigationBar]];
-    }else{
-        [self.navigationController.navigationBar setTintColor:[UIColor colorOfNavigationBar]];
-    }
-    //If the client want his custom bar
-    if(k_have_image_background_navigation_bar) {
-        UIImage *imageBack = [UIImage imageNamed:@"topBar.png"];
-        [self.navigationController.navigationBar setBackgroundImage:imageBack forBarMetrics:UIBarMetricsDefault];
-    }
-    
-    [self setBarForCancelForLoadingFromModal];
-}
-
-
 - (void)viewDidLoad
 {    
 
@@ -315,7 +296,6 @@ NSString *relaunchErrorCredentialFilesNotification = @"relaunchErrorCredentialFi
     }
 }
 
-
 - (void) restoreDownloadsAndUploads {
     //Cancel current uploads with the same user
     [APP_DELEGATE cancelTheCurrentUploadsOfTheUser:_selectedUser.idUser];
@@ -323,21 +303,6 @@ NSString *relaunchErrorCredentialFilesNotification = @"relaunchErrorCredentialFi
     [APP_DELEGATE launchProcessToSyncAllFavorites];
 }
 
-/*- (void)sendErrorCredentialFilesNotification{
-    
-    //Notification to indicate that shouled be relaunch the uploads with Credentials Error
-    [[NSNotificationCenter defaultCenter] postNotificationName:relaunchErrorCredentialFilesNotification object:_selectedUser];
-}*/
-
-
-
-#pragma mark - Buttons
-/*
- * This method close the view
- */
-- (IBAction)cancelClicked:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 
 
 @end

@@ -176,10 +176,10 @@ NSString * NotReachableNetworkForDownloadsNotification = @"NotReachableNetworkFo
         //Update favorites files if there are active user
         [self performSelector:@selector(launchProcessToSyncAllFavorites) withObject:nil afterDelay:5.0];
         
-    } else if (k_show_main_help_guide && [ManageDB getShowHelpGuide]) {
+    }/* else if (k_show_main_help_guide && [ManageDB getShowHelpGuide]) {
             self.helpGuideWindowViewController = [HelpGuideViewController new];
             self.window.rootViewController = self.helpGuideWindowViewController;
-    } else {
+    } */else {
         
         [self checkIfIsNecesaryShowPassCode];
     }

@@ -365,18 +365,7 @@
             }
             break;
         case 4:
-            if (k_show_help_option_on_settings) {
-                n = n + 1;
-            }
-            if (k_show_recommend_option_on_settings) {
-                n = n + 1;
-            }
-            if (k_show_feedback_option_on_settings) {
-                n = n + 1;
-            }
-            if (k_show_imprint_option_on_settings) {
-                n = n + 1;
-            }
+            
             break;
             
         default:
@@ -415,7 +404,7 @@
             [self getSectionAppInstantUpload:cell byRow:indexPath.row];
             break;
         case 4:
-            [self getSectionInfoBlock:cell byRow:indexPath.row];
+            //[self getSectionInfoBlock:cell byRow:indexPath.row];
             break;
             
         default:
@@ -450,7 +439,7 @@
         label.text = @"";
     }
     
-    [container addSubview:label];
+    //[container addSubview:label];
     
     return container;
 }
@@ -530,7 +519,7 @@
             title = NSLocalizedString(@"instant_updloads_section", nil);
             break;
         case 4:
-            title = NSLocalizedString(@"more_section", nil);
+            title = @"";// NSLocalizedString(@"more_section", nil);
             break;
 
         default:
